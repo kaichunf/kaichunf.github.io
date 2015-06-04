@@ -1,0 +1,100 @@
+<head>
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!-- BEGIN TimelineJS -->
+    <script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+    <script>
+    $(document).ready(function() {
+        createStoryJS({
+            type: 'timeline',
+            width: '800',
+            height: '600',
+            source: {
+                "timeline": {
+                    "headline": "Traffic Event StoryLine",
+                    "type": "default",
+                    "text": "<p>The Accident on Interstate 66</p>",
+                    "asset": {
+                        "media": "https://pbs.twimg.com/media/CBh9av8UYAAXeyW.jpg:large",
+                        "credit": "Kaiqun Fu",
+                        "caption": "Caption"
+                    },
+                    "date": [{
+                        'headline': 'WTOP Traffic',
+                        'startDate': '2015,04,10,14,31,11',
+                        'endDate': '2015,04,10,14,41,11',
+                        'asset': {
+                            'media': 'https://twitter.com/WTOPtraffic/status/586597307451310081',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/544895401321447425/oqHmPLtP_normal.png',
+                            'credit': 'WTOP Traffic'
+                        },
+                        'text': '<p>I-66 EB b4 the Beltway; Crash right side. #dctraffic #vatraffic</p>'
+                    }, {
+                        'headline': 'Waze Traffic Was',
+                        'startDate': '2015,04,10,14,38,31',
+                        'endDate': '2015,04,10,14,48,31',
+                        'asset': {
+                            'media': 'https://twitter.com/WazeTrafficWas/status/586599156095049729',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/572744132318068736/Thxh23op_normal.jpeg',
+                            'credit': 'Waze Traffic Was'
+                        },
+                        'text': '<p>Major accident on I-66 E #DCTraffic still delaying traffic 22m more than usual https://t.co/pYiaVZL46A http://t.co/8vVVkbNxnR</p>'
+                    }, {
+                        'headline': 'The Highway Monitor',
+                        'startDate': '2015,04,10,14,41,03',
+                        'endDate': '2015,04,10,14,51,03',
+                        'asset': {
+                            'media': 'https://twitter.com/MDI70thm/status/586599792781963264',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/1158936969/MD70_normal.png',
+                            'credit': 'The Highway Monitor'
+                        },
+                        'text': '<p>Accident, two lanes blocked in #Merrifield on I-66 EB between Nutley St and I-495, jammed back to US-50, delay of 16 mins #DCtraffic</p>'
+                    }, {
+                        'headline': 'Waze Traffic Was',
+                        'startDate': '2015,04,10,15,08,51',
+                        'endDate': '2015,04,10,15,18,51',
+                        'asset': {
+                            'media': 'https://twitter.com/WazeTrafficWas/status/586606786578411520',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/572744132318068736/Thxh23op_normal.jpeg',
+                            'credit': 'Waze Traffic Was'
+                        },
+                        'text': '<p>Major accident on I-66 E #DCTraffic still delaying traffic 22m more than usual https://t.co/0i4h4mDDig http://t.co/gXcf2QlpXn</p>'
+                    }, {
+                        'headline': 'WTOP Traffic',
+                        'startDate': '2015,04,10,15,39,00',
+                        'endDate': '2015,04,10,15,49,00',
+                        'asset': {
+                            'media': 'https://twitter.com/WTOPtraffic/status/586614374879604736',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/544895401321447425/oqHmPLtP_normal.png',
+                            'credit': 'WTOP Traffic'
+                        },
+                        'text': '<p>I-66 EB b4 the Beltway; Earlier crash CLEARED. #dctraffic #vatraffic</p>'
+                    }, {
+                        'headline': 'The Highway Monitor',
+                        'startDate': '2015,04,10,15,45,22',
+                        'endDate': '2015,04,10,15,55,22',
+                        'asset': {
+                            'media': 'https://twitter.com/MDI70thm/status/586615977992912896',
+                            'caption': 'Kaiqun',
+                            'thumbnail': 'https://pbs.twimg.com/profile_images/1158936969/MD70_normal.png',
+                            'credit': 'The Highway Monitor'
+                        },
+                        'text': '<p>I-66 EB b4 the Beltway; Earlier crash CLEARED. #dctraffic #vatraffic</p>'
+                    }]
+                }
+            },
+            embed_id: 'my-timeline'
+        });
+    });
+    </script>
+    <!-- END TimelineJS -->
+</head>
+
+<body>
+    <div id="my-timeline"></div>
+</body>
