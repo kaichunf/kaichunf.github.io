@@ -1,0 +1,15 @@
+target	source	value
+MP3	music player	1
+MP3	flash	1
+iPod	hard disk	1
+iPod	music player	1
+iPod	normal digital screen	1
+flash	hard disk	1
+normal digital screen	touch screen	1
+iPod touch	wifi	1
+iPod touch	touch screen	1
+iPhone	cellular networks	1
+wifi	cellular networks	1
+wifi	iPad	1
+big screen	normal digital screen	1
+big screen	iPad	1
