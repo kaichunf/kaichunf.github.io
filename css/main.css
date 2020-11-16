@@ -31,6 +31,16 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Selectecd publication area -------------------------------------------------------------------- */
+#slct_publication {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#slct_publication li {
+  margin-bottom: 1rem;
+}
+
 .university {
   color: gray;
 }
