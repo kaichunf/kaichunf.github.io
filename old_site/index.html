@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kaiqun Fu</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="Eric Wood, Online">
+    <meta name="og:description" content="a creator of soundwaves, web things, and probably other stuff as well.">
+    <meta name="og:image" content="assets/computer.png">
+    <style type="text/css">
+    /* shoutout to Justin Falcone for helping me figure out the fonts */
+    @font-face {
+        font-family: "Chicago Normal";
+        src: url("assets/Chicago.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Geneva";
+        src: url("assets/Geneva.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        box-sizing: border-box;
+        /* because I'm lazy */
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    body {
+        background: url("assets/background.png");
+        background-attachment: fixed;
+    }
+
+    .window {
+        width: 600px;
+        border: solid black 1px;
+        border-bottom: solid black 3px;
+        border-right: solid black 3px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: white;
+        margin: 30px auto;
+    }
+
+    .window__header {
+        position: relative;
+        text-align: center;
+        border-bottom: solid black 1px;
+        padding: 3px 1px;
+    }
+
+    .window__header-close {
+        position: absolute;
+        width: 28px;
+        height: 24px;
+        left: 15px;
+        background: white;
+    }
+
+    .window__header-close::after {
+        content: '';
+        box-sizing: border-box;
+        border: solid black 1px;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 2px;
+    }
+
+    .window__header-inner {
+        /* this is so annoying, I'll probably never get it right. close enough??? */
+        /*   background: linear-gradient(to bottom, #bfbfbf 0%,#404040 4%,#404040 9%,#bfbfbf 13%,#bfbfbf 17%,#404040 22%,#404040 26%,#bfbfbf 30%,#bfbfbf 35%,#404040 39%,#404040 43%,#bfbfbf 48%,#bfbfbf 52%,#404040 57%,#404040 61%,#bfbfbf 65%,#bfbfbf 70%,#404040 74%,#404040 78%,#bfbfbf 83%,#bfbfbf 87%,#404040 91%,#404040 96%,#bfbfbf 100%); */
+        background: linear-gradient(to bottom, #ffffff 0%, #000000 4%, #000000 9%, #ffffff 13%, #ffffff 17%, #000000 22%, #000000 26%, #ffffff 30%, #ffffff 35%, #000000 39%, #000000 43%, #ffffff 48%, #ffffff 52%, #000000 57%, #000000 61%, #ffffff 65%, #ffffff 70%, #000000 74%, #000000 78%, #ffffff 83%, #ffffff 87%, #000000 91%, #000000 96%, #ffffff 100%);
+        /*   background: linear-gradient(to bottom, #ffffff 0%,#000000 2%,#000000 4%,#ffffff 6%,#ffffff 9%,#000000 11%,#000000 13%,#ffffff 15%,#ffffff 17%,#000000 19%,#000000 21%,#ffffff 23%,#ffffff 26%,#000000 28%,#000000 30%,#ffffff 32%,#ffffff 34%,#000000 36%,#000000 38%,#ffffff 40%,#ffffff 43%,#000000 45%,#000000 47%,#ffffff 49%,#ffffff 51%,#000000 53%,#000000 55%,#ffffff 57%,#ffffff 60%,#000000 62%,#000000 64%,#ffffff 66%,#ffffff 68%,#000000 70%,#000000 72%,#ffffff 74%,#ffffff 77%,#000000 79%,#000000 81%,#ffffff 83%,#ffffff 85%,#000000 87%,#000000 89%,#ffffff 91%,#ffffff 94%,#000000 96%,#000000 98%,#ffffff 100%); */
+    }
+
+    .window__header-inner h1 {
+        display: inline-block;
+        margin: 0;
+        padding: 0 10px;
+        background: white;
+        font-size: 16px;
+        line-height: 24px;
+        word-spacing: -2px;
+        font-weight: 300;
+        font-family: "Chicago Normal", sans-serif;
+
+        /* this is annoying, but even though things are technically centered,
+          they don't LOOK that way unless I add 1px on top. Ugh. */
+        padding-top: 1px;
+        height: 24px;
+    }
+
+    .window__body {
+        padding: 10px 15px;
+    }
+
+    .group {
+        margin: 20px 0;
+        border: dotted black 1px;
+        padding: 10px;
+    }
+
+    .group__header {
+        display: table;
+        margin-top: -22px;
+        margin-bottom: 10px;
+        padding: 0 3px;
+        font-family: "Geneva", sans-serif;
+        font-size: 24px;
+        background: white;
+    }
+
+    h2,
+    h3 {
+        font-family: "Chicago Normal", sans-serif;
+        font-weight: 200;
+        margin: 0;
+    }
+
+    p,
+    li {
+        font-family: "Geneva", sans-serif;
+        font-size: 24px;
+        margin: 0;
+        word-spacing: -6px;
+        /* this font is weird, yo */
+        line-height: 1.1;
+    }
+
+    a {
+        color: black;
+    }
+
+    .subgroup h3 {
+        margin-top: 15px;
+    }
+
+    .subgroup:first-child h3 {
+        margin-top: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 0 10px;
+        }
+
+        .window {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <section class="window">
+        <div class="window__header">
+            <div class="window__header-close"></div>
+            <div class="window__header-inner">
+                <h1>
+                    Kaiqun Fu
+                </h1>
+            </div>
+        </div>
+        <div class="window__body">
+            <p>
+                A Ph. D. student in Computer Science @ Virginia Tech
+            </p>
+            <section class="group">
+                <h2 class="group__header">Research Interest</h2>
+                <div class="subgroup">
+                    <h3>Spatial Data Mining</h3>
+                    <p>
+                        Spatial events detection, Event impact analysis, etc.
+                    </p>
+                    <!-- <p>
+              <a href="https://ericandthepersonalcomputingrevolution.bandcamp.com" target="_blank">bandcamp</a>
+            </p> -->
+                </div>
+                <div class="subgroup">
+                    <h3>Urban Computing</h3>
+                    <p>
+                        Intelligent Transportation Systems, Urban safety perception, Social media analysis, etc.
+                    </p>
+                    <!-- <p>
+              <a href="https://soundcloud.com/eric-b-wood" target="_blank">soundcloud</a>
+            </p> -->
+                </div>
+                <div class="subgroup">
+                    <h3>Deep Learning</h3>
+                    <p>
+                        Graph convolution networks, Convolutional neural networks, Recurrent Neural Networks.
+                    </p>
+                </div>
+            </section>
+            <section class="group">
+                <h2 class="group__header">Publications</h2>
+                <div class="subgroup">
+                    <h3>HastGCN: A Hierarchical Attention-based Spatiotemporal Graph Convolution Network for Traffic Incident Impact Forecasting</h3>
+                    <p><strong>Kaiqun Fu</strong>, Taoran Ji, Zhiqian Chen, Chang-Tien Lu</p>
+                    <p><i>29th ACM International Conference On Information And Knowledge Management (2020) submitted</i></p>
+                    <p><a href="papers/fu2020hastgcn.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>TITAN: A Spatiotemporal Feature Learning Framework for Traffic Incident Duration Prediction</h3>
+                    <p><strong>Kaiqun Fu</strong>, Taoran Ji, Liang Zhao, Chang-Tien Lu</p>
+                    <p><i>Proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (2019)</i></p>
+                    <p><a href="papers/fu2019titan.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Patent Citation Dynamics Modeling via Multi-Attention Recurrent Networks</h3>
+                    <p>Taoran Ji, Zhiqian Chen, Nathan Self, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, Naren Ramakrishnan</p>
+                    <p><i>Proceedings of the 28th International Joint Conference on Artificial Intelligence, IJCAI (2019)</i></p>
+                    <p><a href="papers/ji2019patent.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Feature driven learning framework for cybersecurity event detection</h3>
+                    <p>Taoran Ji, Xuchao Zhang, Nathan Self, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, Naren Ramakrishnan</p>
+                    <p><i>Proceedings of the 2019 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining, ASONAM (2019)</i></p>
+                    <p><a href="papers/ji2019feature.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Batman or the joker? the powerful urban computing and its ethics issues</h3>
+                    <p><strong>Kaiqun Fu</strong>, Abdulaziz Alhamadani, Taoran Ji, Chang-Tien Lu</p>
+                    <p><i>SIGSPATIAL Special 11 (2), 16-25 (2019)</i></p>
+                    <p><a href="papers/fu2019batman.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>StreetNet: Preference Learning with Convolutional Neural Network on Urban Crime Perception</h3>
+                    <p><strong>Kaiqun Fu</strong>, Zhiqian Chen, Chang-Tien Lu</p>
+                    <p><i>Proceedings of the 26th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (2018)</i></p>
+                    <p><a href="papers/fu2018streetnet.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Multi-task Learning for Transit Service Disruption Detection</h3>
+                    <p><strong>Kaiqun Fu</strong>, Taoran Ji, Nathan Self, Chang-Tien Lu, Naren Ramakrishnan</p>
+                    <p><i>Proceedings of the 2018 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining, ASONAM (2018)</i></p>
+                    <p><a href="papers/ji2018multi.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>SAFEBIKE: A Bike-sharing Route Recommender with Availability Prediction and Safe Routing</h3>
+                    <p>Weisheng Zhong, Fanglan Chen, <strong>Kaiqun Fu</strong>, Chang-Tien Lu</p>
+                    <p><i>arXiv preprint arXiv:1712.01469 (2017)</i></p>
+                    <p><a href="papers/zhong2017safebike.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Exploring Social Traffic Data for Evaluating Urban Arterial Congestion</h3>
+                    <p>Rakesh Nune, Weisheng Zhong, <strong>Kaiqun Fu</strong>, Jason X. Tao</p>
+                    <p><i>Transportation Research Board 96th Annual MeetingTransportation Research Board (2017)</i></p>
+                    <p><a href="papers/nune2017exploring.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Extracting Urban Street Features Using Street Level LiDAR Data for Connected Vehicle Applications</h3>
+                    <p><strong>Kaiqun Fu</strong>, Rakesh Nune, Jason X. Tao</p>
+                    <p><i>Transportation Research Board 96th Annual MeetingTransportation Research Board (2017)</i></p>
+                    <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Social Media Data Analysis for Traffic Incident Detection and Management</h3>
+                    <p><strong>Kaiqun Fu</strong>, Rakesh Nune, Jason X. Tao</p>
+                    <p><i>Transportation Research Board 94th Annual MeetingTransportation Research Board (2015)</i></p>
+                    <p><a href="papers/fu2015social.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Steds: Social Media based Transportation Event Detection with Text Summarization</h3>
+                    <p><strong>Kaiqun Fu</strong>, Chang-Tien Lu, Rakesh Nune, Jason X. Tao</p>
+                    <p><i>Proceedings of the 2015 IEEE 18th International Conference on Intelligent Transportation Systems (2015)</i></p>
+                    <p><a href="papers/fu2015steds.pdf" target="_blank">paper</a> <a href="" target="_blank">slides</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Find the Butterfly: A Social Media based Arterial Incidents Detection and Causality Analysis System</h3>
+                    <p><strong>Kaiqun Fu</strong>, Weisheng Zhong, Chang-Tien Lu, Arnold P. Boedihardjo</p>
+                    <p><i>Proceedings of the 23rd SIGSPATIAL International Conference on Advances in Geographic Information Systems (2015)</i></p>
+                    <p><a href="papers/fu2015find.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>Treads: A Safe Route Recommender using Social Media Mining and Text Summarization</h3>
+                    <p><strong>Kaiqun Fu</strong>, Yen-Cheng Lu, Chang-Tien Lu</p>
+                    <p><i>Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (2014)</i></p>
+                    <p><a href="papers/fu2014treads.pdf" target="_blank">paper</a></p>
+                </div>
+                <div class="subgroup">
+                    <h3>A Search and Summary Application for Traffic Events Detection based on Twitter Data</h3>
+                    <p>Meiling Liu, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, Guangsheng Chen, Huiqiang Wang</p>
+                    <p><i>Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (2014)</i></p>
+                    <p><a href="papers/liu2014search.pdf" target="_blank">paper</a></p>
+                </div>
+            </section>
+            <section class="group">
+                <h2 class="group__header">Code</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/kaichunf" target="_blank">github</a> - some code here, feel free to start or folk
+                    </li>
+                    <!-- <li>
+              <a href="https://glitch.com/@eric-wood" target="_blank">glitch</a> - mostly web audio experiments
+            </li>
+            <li>
+              <a href="https://codepen.io/eric-wood/" target="_blank">codepen</a> - mostly CSS/JS experiments here
+            </li> -->
+                </ul>
+            </section>
+            <section class="group">
+                <h2 class="group__header">Social</h2>
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/FuKaiqun" target="_blank">twitter</a> - tweet me!
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/kaiqun.fu" target="_blank">facebook</a> - making poker faces
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=17le_0cAAAAJ&hl=en" target="_blank">Google Scholar</a> - cite for cite
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/kaiqun-fu-40913439/" target="_blank">linkedin</a> - add me to your professional network or whatever
+                    </li>
+                    <!-- <li>
+              <a href="https://www.instagram.com/eric.makes.noise" target="_blank">music instagram</a> - making weird faces playing guitar
+            </li>   -->
+                </ul>
+            </section>
+            <p>
+                website template by Eric Wood
+                / <a href="https://github.com/eric-wood/eric-wood.github.com">view source</a>
+            </p>
+        </div>
+    </section>
+</body>
+
+</html>
