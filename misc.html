@@ -34,6 +34,9 @@
     <!-- Local styles -->
     <link rel="stylesheet" href="css/main.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad: true});</script>
+
 </head>
 
 <body>
@@ -48,17 +51,29 @@
 
     <div class="row">
         <div class="col-sm-12">
+            <h1>Research Schedule</h1>
 
-            <h1>Curriculum Vitae</h1>
+            <blockquote>He who every morning plans the transactions of that day and follows that plan carries a thread
+                that will guide him through the labyrinth of the most busy life.
+                <cite title="source title">&mdash; Victor Hugo</cite>
+            </blockquote>
 
-            <p>Find my curriculum vitae, below. References available upon request.</p>
+            <div class="mermaid">
+                gantt
+                dateFormat YYYY-MM-DD
+                axisFormat %b-%d
 
-            <p class='text-right'><a href='https://drive.google.com/file/d/1JEWmewfV8_e1Lxf58mQjUIekGtrb38Ha/edit'
-                                     target='_blank'><i class='fas fa-print fa-fw' aria-hidden='true'></i>&nbsp;Print
-                Vitae</a></p>
-            <iframe width='100%' height='900px' frameborder='0' scrolling='yes' class='embed-responsive-item'
-                    src='https://drive.google.com/file/d/1JEWmewfV8_e1Lxf58mQjUIekGtrb38Ha/preview'
-                    allowfullscreen></iframe>
+                section Conferences
+                IJCAI:done,conf1,2021-01-13,2021-01-20
+                KDD:done,conf2,2021-02-01,2021-02-08
+                CIKM:conf3,2021-05-01,2021-05-15
+                SIGSPATIAL:conf4,2021-05-11,2021-05-25
+
+                click conf1 href "https://ijcai-21.org/cfp/"
+                click conf2 href "https://www.kdd.org/kdd2021/calls/view/call-for-research-track-papers"
+                click conf3 href "https://www.cikm2021.org/"
+                click conf4 href "https://sigspatial2021.sigspatial.org/"
+            </div>
 
         </div>
     </div>
@@ -91,9 +106,23 @@
 
 <script>
     $(document).ready(function () {
-        $("li#vitae a").addClass("active");
-        $("li#vitae a").addClass("hvr-bubble-bottom");
+        $("li#misc a").addClass("active");
+        $("li#misc a").addClass("hvr-bubble-bottom");
+
     });
+</script>
+<script>
+    var printArguments = function (arg1, arg2, arg3) {
+        alert('printArguments called with arguments: ' + arg1 + ', ' + arg2 + ', ' + arg3);
+    }
+    var printTask = function (taskId) {
+        alert('taskId: ' + taskId);
+    }
+    var config = {
+        startOnLoad: true,
+        securityLevel: 'loose',
+    };
+    mermaid.initialize(config);
 </script>
 
 </body>
