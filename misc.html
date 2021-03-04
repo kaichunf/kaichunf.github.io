@@ -119,6 +119,19 @@
     $(document).ready(function () {
         $("li#misc a").addClass("active");
         $("li#misc a").addClass("hvr-bubble-bottom");
+
+        let config = {
+            startOnLoad: true,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'cardinal',
+            },
+            theme: "neutral",
+            securityLevel: 'loose',
+        };
+        mermaid.initialize(config);
+
     });
 </script>
 </body>
