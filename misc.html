@@ -59,20 +59,6 @@
             </blockquote>
 
             <div class="mermaid">
-                gantt
-                dateFormat YYYY-MM-DD
-                axisFormat %b-%d
-
-                section Conferences
-                IJCAI:done,conf1,2021-01-13,2021-01-20
-                KDD:done,conf2,2021-02-01,2021-02-08
-                CIKM:conf3,2021-05-01,2021-05-15
-                SIGSPATIAL:conf4,2021-05-11,2021-05-25
-
-                click conf1 href "https://ijcai-21.org/cfp/"
-                click conf2 href "https://www.kdd.org/kdd2021/calls/view/call-for-research-track-papers"
-                click conf3 href "https://www.cikm2021.org/"
-                click conf4 href "https://sigspatial2021.sigspatial.org/"
             </div>
 
         </div>
@@ -109,15 +95,17 @@
         $("li#misc a").addClass("active");
         $("li#misc a").addClass("hvr-bubble-bottom");
 
+        $.ajax({
+            url : "js/mermaid.txt",
+            dataType: "text",
+            success: function (data) {
+                $(".mermaid").html(data);
+            }
+        });
+
     });
 </script>
 <script>
-    var printArguments = function (arg1, arg2, arg3) {
-        alert('printArguments called with arguments: ' + arg1 + ', ' + arg2 + ', ' + arg3);
-    }
-    var printTask = function (taskId) {
-        alert('taskId: ' + taskId);
-    }
     var config = {
         startOnLoad: true,
         securityLevel: 'loose',
