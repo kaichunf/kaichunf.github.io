@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="css/main.css">
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad: false});</script>
 
 </head>
 
@@ -100,19 +99,22 @@
             dataType: "text",
             success: function (data) {
                 $(".mermaid").html(data);
+                let config = {
+                    startOnLoad: true,
+                    flowchart: {
+                        useMaxWidth: true,
+                        htmlLabels: true,
+                        curve: 'cardinal',
+                    },
+                    theme: "neutral",
+                    securityLevel: 'loose',
+                };
+                mermaid.initialize(config);
             }
         });
 
     });
 </script>
-<script>
-    var config = {
-        startOnLoad: true,
-        securityLevel: 'loose',
-    };
-    mermaid.initialize(config);
-</script>
-
 </body>
 
 </html>
