@@ -80,7 +80,22 @@ h4, h5, h6 {
     color: darkslategray !important;
 }
 
-#mentoring .panel-heading h5 {
+#phdstudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#masterstudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#understudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#highstudents .panel-heading h5 {
     font-weight: 500;
     color: darkslategray !important;
 }
