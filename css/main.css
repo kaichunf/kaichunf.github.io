@@ -80,6 +80,26 @@ h4, h5, h6 {
     color: darkslategray !important;
 }
 
+#phdstudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#masterstudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#understudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
+#highstudents .panel-heading h5 {
+    font-weight: 500;
+    color: darkslategray !important;
+}
+
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
     font-size: 1.5rem;
     font-family: "Montserrat", Helvetica, sans-serif;
