@@ -34,8 +34,6 @@
     <!-- Local styles -->
     <link rel="stylesheet" href="css/main.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
 </head>
 
 <body>
@@ -50,44 +48,14 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <h1>Research Schedule</h1>
 
-            <blockquote>He who every morning plans the transactions of that day and follows that plan carries a thread
-                that will guide him through the labyrinth of the most busy life.
-                <cite title="source title">&mdash; Victor Hugo</cite>
-            </blockquote>
+            <h1>Nothing to Show Here</h1>
 
-            <p>Under Construction</p>
-<!--            <div class="mermaid">-->
-<!--                gantt-->
-<!--                dateFormat YYYY-MM-DD-->
-<!--                axisFormat %b-%d-->
-
-<!--                section Conferences-->
-<!--                IJCAI:active,conf1,2020-12-20,2021-01-20-->
-<!--                KDD:active,conf2,2021-01-08,2021-02-08-->
-<!--                CIKM:active,conf3,2021-04-15,2021-05-15-->
-<!--                SIGSPATIAL:active,conf4,2021-04-25,2021-05-25-->
-<!--                BigData:active,conf5,2021-08-05,2021-09-05-->
-<!--                AAAI22:active,conf6,2021-08-08,2021-09-08-->
-
-<!--                %%section Journals-->
-<!--                %%IJCAI:active,conf1,2021-01-13,2021-01-20-->
-<!--                %%KDD:active,conf2,2021-02-01,2021-02-08-->
-<!--                %%CIKM:active,conf3,2021-05-01,2021-05-15-->
-<!--                %%SIGSPATIAL:active,conf4,2021-05-11,2021-05-25-->
-
-<!--                section Funds-->
-<!--                CRII:active,fund1,2021-08-20,2021-09-20-->
-
-<!--                click conf1 href "https://ijcai-21.org/cfp/"-->
-<!--                click conf2 href "https://www.kdd.org/kdd2021/calls/view/call-for-research-track-papers"-->
-<!--                click conf3 href "https://www.cikm2021.org/"-->
-<!--                click conf4 href "https://sigspatial2021.sigspatial.org/"-->
-<!--                click conf5 href "http://bigdataieee.org/BigData2021/ImportantDates.html"-->
-<!--                click conf6 href "https://aaai.org/Conferences/AAAI-22/aaai22call/"-->
-<!--                click fund1 href "https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504952"-->
-<!--            </div>-->
+            <!--  Lecture 01  -->
+<!--            <p>Lecture 01</p>-->
+<!--            <p class='text-right'><a href='https://drive.google.com/file/d/1JEWmewfV8_e1Lxf58mQjUIekGtrb38Ha/edit' target='_blank'><i class='fas fa-print fa-fw' aria-hidden='true'></i>&nbsp;Print Slides</a></p>-->
+<!--            <iframe width='100%' height='400px' frameborder='0' scrolling='yes' class='embed-responsive-item' src='https://drive.google.com/file/d/1JEWmewfV8_e1Lxf58mQjUIekGtrb38Ha/preview' allowfullscreen></iframe>-->
+<!--            <hr>-->
 
         </div>
     </div>
@@ -120,23 +88,11 @@
 
 <script>
     $(document).ready(function () {
-        $("li#schedule a").addClass("active");
-        $("li#schedule a").addClass("hvr-bubble-bottom");
-
-        let config = {
-            startOnLoad: true,
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true,
-                curve: 'cardinal',
-            },
-            theme: "neutral",
-            securityLevel: 'loose',
-        };
-        mermaid.initialize(config);
-
+        $("li#assign a").addClass("active");
+        $("li#assign a").addClass("hvr-bubble-bottom");
     });
 </script>
+
 </body>
 
 </html>
