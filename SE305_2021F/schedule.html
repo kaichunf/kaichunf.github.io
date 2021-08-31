@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata for the Webpage -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kaiqun Fu</title>
+
+    <link rel="icon" type="image/icon" href="img/avatar_icon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap CSS files-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- jQuery UI CSS (optional) -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
+
+    <!-- Font Awesome Web Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- navbar include -->
+<div w3-include-html="navbar.html"></div>
+
+<div class="spacer-div-3 hidden-xs hidden-xs"></div>
+
+<!-- Main content    -->
+<div id="main-container" class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Research Schedule</h1>
+
+            <blockquote>He who every morning plans the transactions of that day and follows that plan carries a thread
+                that will guide him through the labyrinth of the most busy life.
+                <cite title="source title">&mdash; Victor Hugo</cite>
+            </blockquote>
+
+            <div class="mermaid">
+                gantt
+                dateFormat YYYY-MM-DD
+                axisFormat %b-%d
+
+                section Conferences
+                IJCAI:active,conf1,2020-12-20,2021-01-20
+                KDD:active,conf2,2021-01-08,2021-02-08
+                CIKM:active,conf3,2021-04-15,2021-05-15
+                SIGSPATIAL:active,conf4,2021-04-25,2021-05-25
+                BigData:active,conf5,2021-08-05,2021-09-05
+                AAAI22:active,conf6,2021-08-08,2021-09-08
+
+                %%section Journals
+                %%IJCAI:active,conf1,2021-01-13,2021-01-20
+                %%KDD:active,conf2,2021-02-01,2021-02-08
+                %%CIKM:active,conf3,2021-05-01,2021-05-15
+                %%SIGSPATIAL:active,conf4,2021-05-11,2021-05-25
+
+                section Funds
+                CRII:active,fund1,2021-08-20,2021-09-20
+
+                click conf1 href "https://ijcai-21.org/cfp/"
+                click conf2 href "https://www.kdd.org/kdd2021/calls/view/call-for-research-track-papers"
+                click conf3 href "https://www.cikm2021.org/"
+                click conf4 href "https://sigspatial2021.sigspatial.org/"
+                click conf5 href "http://bigdataieee.org/BigData2021/ImportantDates.html"
+                click conf6 href "https://aaai.org/Conferences/AAAI-22/aaai22call/"
+                click fund1 href "https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504952"
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Back-to-top button -->
+<a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i
+        class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+
+<!-- footer include -->
+<div w3-include-html="footer.html"></div>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS Library -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+
+<!-- html file include script | used for navbar and footer -->
+<script src="js/w3data.js"></script>
+<script>
+    w3IncludeHTML()
+</script>
+
+<!-- Local scripts -->
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("li#schedule a").addClass("active");
+        $("li#schedule a").addClass("hvr-bubble-bottom");
+
+        let config = {
+            startOnLoad: true,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'cardinal',
+            },
+            theme: "neutral",
+            securityLevel: 'loose',
+        };
+        mermaid.initialize(config);
+
+    });
+</script>
+</body>
+
+</html>
