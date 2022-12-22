@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata for the Webpage -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSC:792</title>
+
+    <link rel="icon" type="image/icon" href="img/avatar_icon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap CSS files-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- jQuery UI CSS (optional) -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
+
+    <!-- Font Awesome Web Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+<!-- navbar include -->
+<div w3-include-html="navbar.html"></div>
+
+<div class="spacer-div-3 hidden-xs hidden-xs"></div>
+
+<!-- Main content    -->
+<div id="main-container" class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>Project Teams</h1>
+<!--                <table style="width:100%">-->
+<!--                    <tr>-->
+<!--                        <th>Team ID</th>-->
+<!--                        <th>Team Members</th>-->
+<!--                        <th>Assigned Paper Summary</th>-->
+<!--                        <th>Summary Date</th>-->
+<!--                        <th>Course Project Link</th>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>1</td>-->
+<!--                        <td>Mose Tillett (Team Leader)<br/>Fatoumata Cessay<br/>Omeshamisu Anigala</td>-->
+<!--                        <td><a href="papers/1.pdf">Paper Link</a></td>-->
+<!--                        <td>3/31</td>-->
+<!--                        <td><a href="">Link</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>2</td>-->
+<!--                        <td>Young-Sun Jang (Team Leader)<br/>Yangxiao Bai<br/>Abir Mohammad Hadi</td>-->
+<!--                        <td><a href="papers/4.pdf">Paper Link</a></td>-->
+<!--                        <td>3/10</td>-->
+<!--                        <td><a href="">Link</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>3</td>-->
+<!--                        <td>Chen-Wei Hung (Team Leader)<br/>Zain ul Abideen Usmani<br/>Mukhtiar Ali</td>-->
+<!--                        <td><a href="papers/5.pdf">Paper Link</a></td>-->
+<!--                        <td>2/24</td>-->
+<!--                        <td><a href="">Link</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>4</td>-->
+<!--                        <td>Anitya Gupta<br/>Shixian Jing<br/>Linsong Li</td>-->
+<!--                        <td><a href="papers/6.pdf">Paper Link</a></td>-->
+<!--                        <td>2/17</td>-->
+<!--                        <td><a href="">Link</a></td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Back-to-top button -->
+<a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+
+<!-- footer include -->
+<div w3-include-html="footer.html"></div>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS Library -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+
+<!-- html file include script | used for navbar and footer -->
+<script src="js/w3data.js"></script>
+<script>
+    w3IncludeHTML()
+</script>
+
+<!-- Local scripts -->
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("li#project a").addClass("active");
+        $("li#project a").addClass("hvr-bubble-bottom");
+    });
+</script>
+
+</body>
+
+</html>

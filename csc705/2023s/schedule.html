@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata for the Webpage -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSC:592</title>
+
+    <link rel="icon" type="image/icon" href="img/avatar_icon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap CSS files-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- jQuery UI CSS (optional) -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
+
+    <!-- Font Awesome Web Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- navbar include -->
+<div w3-include-html="navbar.html"></div>
+
+<div class="spacer-div-3 hidden-xs hidden-xs"></div>
+
+<!-- Main content    -->
+<div id="main-container" class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Course Schedule</h1>
+
+            <blockquote>He who every morning plans the transactions of that day and follows that plan carries a thread
+                that will guide him through the labyrinth of the most busy life.
+                <cite title="source title">&mdash; Victor Hugo</cite>
+            </blockquote>
+
+<!--            <p>Under Construction</p>-->
+            <div class="mermaid">
+                gantt
+                dateFormat YYYY-MM-DD
+                axisFormat %b-%d
+
+                section Class
+                IntroductionNearest Neighbours:active,class01,2022-08-23,2022-08-25
+                Linear Regression:active,class02,2022-08-30,2022-09-01
+                Logistic Regression:active,class03,2022-09-06,2022-09-08
+                Multiclass Classification:active,class04,2022-09-13,2022-09-15
+                Optimization:active,class05,2022-09-20,2022-09-22
+                Support Vector Machines:active,class06,2022-09-27,2022-09-29
+                Decision Trees:active,class07,2022-10-04,2022-10-06
+                Exam:active,class08,2022-10-11,2022-10-13
+                Neural Networks:active,class09,2022-10-18,2022-10-20
+                BaggingBoosting:active,class10,2022-10-25,2022-10-27
+                Clustering:active,class11,2022-11-01,2022-11-03
+                Probabilistic Models:active,class12,2022-11-08,2022-11-10
+                EM Algorithm:active,class13,2022-11-15,2022-11-17
+                k-Means:active,class14,2022-11-22,2022-11-24
+                Autoencoders:active,class15,2022-11-29,2022-12-01
+                Autoencoders:active,class16,2022-12-06,2022-12-08
+
+                click class01 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l01a"
+                click class02 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l02a"
+                click class03 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l03a"
+                click class04 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l04a"
+                click class05 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l05a"
+                click class06 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l06a"
+                click class07 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l07a"
+                click class08 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l08a"
+                click class09 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l09a"
+                click class10 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l10a"
+                click class11 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l11a"
+                click class12 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l12a"
+                click class13 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l13a"
+                click class14 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l14a"
+                click class15 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l15a"
+                click class16 href "https://kaichunf.github.io/csc592/2022f/slides.html#csc592_l16a"
+            </div>
+            <!--                section Project-->
+            <!--                Proj. Proposal:active,proj01,2022-02-15,2022-02-17-->
+            <!--                Proj. Checkpoint:active,proj02,2022-03-22,2022-03-24-->
+            <!--                Proj. Presentation:active,proj03,2022-04-26,2022-04-28-->
+
+            <!--                section PaperSummary-->
+            <!--                Team 4:active,team04,2022-02-17,2022-02-18-->
+            <!--                Team 3:active,team03,2022-02-24,2022-02-25-->
+            <!--                Team 2:active,team02,2022-03-10,2022-03-11-->
+            <!--                Team 1:active,team01,2022-03-31,2022-04-01-->
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Back-to-top button -->
+<a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i
+        class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+
+<!-- footer include -->
+<div w3-include-html="footer.html"></div>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS Library -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+
+<!-- html file include script | used for navbar and footer -->
+<script src="js/w3data.js"></script>
+<script>
+    w3IncludeHTML()
+</script>
+
+<!-- Local scripts -->
+<script src="js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("li#schedule a").addClass("active");
+        $("li#schedule a").addClass("hvr-bubble-bottom");
+
+        let config = {
+            startOnLoad: true,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'cardinal',
+            },
+            theme: "neutral",
+            securityLevel: 'loose',
+        };
+        mermaid.initialize(config);
+
+    });
+</script>
+</body>
+
+</html>
