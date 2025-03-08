@@ -1,272 +1,604 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-
-    <!-- Required meta tags -->
+<head>
+    <title>Kaiqun Fu</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="Eric Wood, Online">
+    <meta name="og:description" content="a creator of soundwaves, web things, and probably other stuff as well.">
+    <meta name="og:image" content="assets/computer.png">
+    <style type="text/css">
+        /* shoutout to Justin Falcone for helping me figure out the fonts */
+        @font-face {
+            font-family: "Chicago Normal";
+            src: url("assets/Chicago.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="img/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
-    <link rel="manifest" href="img/favicons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="img/favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+        @font-face {
+            font-family: "Geneva";
+            src: url("assets/Geneva.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    <!-- jQuery UI css -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        * {
+            box-sizing: border-box;
+            /* because I'm lazy */
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
 
-    <!-- Google font, Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-      rel="stylesheet">
+        body {
+            background: url("assets/background.png");
+            background-attachment: fixed;
+        }
 
-    <!-- FontAwesome icon include -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+        .window {
+            width: 1200px;
+            border: solid black 1px;
+            border-bottom: solid black 3px;
+            border-right: solid black 3px;
+            border-bottom-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: white;
+            margin: 30px auto;
+        }
 
-    <!-- Main local styles -->
-    <link rel="stylesheet" href="css/main.css">
+        .window__header {
+            position: relative;
+            text-align: center;
+            border-bottom: solid black 1px;
+            padding: 3px 1px;
+        }
 
-    <title>Jane E. Smith, PhD</title>
+        .window__header-close {
+            position: absolute;
+            width: 28px;
+            height: 24px;
+            left: 15px;
+            background: white;
+        }
 
-  </head>
+        .window__header-close::after {
+            content: '';
+            box-sizing: border-box;
+            border: solid black 1px;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 2px;
+        }
 
-  <body id="top">
+        .window__header-inner {
+            /* this is so annoying, I'll probably never get it right. close enough??? */
+            /*   background: linear-gradient(to bottom, #bfbfbf 0%,#404040 4%,#404040 9%,#bfbfbf 13%,#bfbfbf 17%,#404040 22%,#404040 26%,#bfbfbf 30%,#bfbfbf 35%,#404040 39%,#404040 43%,#bfbfbf 48%,#bfbfbf 52%,#404040 57%,#404040 61%,#bfbfbf 65%,#bfbfbf 70%,#404040 74%,#404040 78%,#bfbfbf 83%,#bfbfbf 87%,#404040 91%,#404040 96%,#bfbfbf 100%); */
+            background: linear-gradient(to bottom, #ffffff 0%, #000000 4%, #000000 9%, #ffffff 13%, #ffffff 17%, #000000 22%, #000000 26%, #ffffff 30%, #ffffff 35%, #000000 39%, #000000 43%, #ffffff 48%, #ffffff 52%, #000000 57%, #000000 61%, #ffffff 65%, #ffffff 70%, #000000 74%, #000000 78%, #ffffff 83%, #ffffff 87%, #000000 91%, #000000 96%, #ffffff 100%);
+            /*   background: linear-gradient(to bottom, #ffffff 0%,#000000 2%,#000000 4%,#ffffff 6%,#ffffff 9%,#000000 11%,#000000 13%,#ffffff 15%,#ffffff 17%,#000000 19%,#000000 21%,#ffffff 23%,#ffffff 26%,#000000 28%,#000000 30%,#ffffff 32%,#ffffff 34%,#000000 36%,#000000 38%,#ffffff 40%,#ffffff 43%,#000000 45%,#000000 47%,#ffffff 49%,#ffffff 51%,#000000 53%,#000000 55%,#ffffff 57%,#ffffff 60%,#000000 62%,#000000 64%,#ffffff 66%,#ffffff 68%,#000000 70%,#000000 72%,#ffffff 74%,#ffffff 77%,#000000 79%,#000000 81%,#ffffff 83%,#ffffff 85%,#000000 87%,#000000 89%,#ffffff 91%,#ffffff 94%,#000000 96%,#000000 98%,#ffffff 100%); */
+        }
 
-    <!-- navbar include -->
-    <div id="page-navbar"></div>
+        .window__header-inner h1 {
+            display: inline-block;
+            margin: 0;
+            padding: 0 10px;
+            background: white;
+            font-size: 16px;
+            line-height: 24px;
+            word-spacing: -2px;
+            font-weight: 300;
+            font-family: "Chicago Normal", sans-serif;
 
-    <!-- main wrapper div -->
-    <div class="container" id="wrapper">
+            /* this is annoying, but even though things are technically centered,
+              they don't LOOK that way unless I add 1px on top. Ugh. */
+            padding-top: 1px;
+            height: 24px;
+        }
 
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="text-center">
-            <img id="my-photo" src="https://unsplash.it/500/500" class="rounded img-fluid shadow-sm" width="100%"
-              alt="Image of Jane Smith">
-          </div>
+        .window__body {
+            padding: 10px 15px;
+        }
 
-          <table class="table mt-4" id="contact-table">
-            <tbody>
-              <tr class="d-flex">
-                <td class="col-2"><i class="fa fa-fw fa-lg fa-home"></i></td>
-                <td class="col-10">Building 123<br>
-                  James Trickington University<br>
-                  Anytown, CA 99999-1234<br>
-                  <span class="pointer"><a class="bright-blue" role="button" data-toggle="modal"
-                      data-target="#modal-map-to-office"><i class="fa fa-map-marker-alt mr-2"></i>Map</a></span>
-                </td>
-              </tr>
-              <tr class="d-flex">
-                <td class="col-2"><i class="fa fa-fw fa-lg fa-phone"></i></td>
-                <td class="col-10"><a href="tel:9991234567">(999) 123-4567</a></td>
-              </tr>
-              <tr class="d-flex">
-                <td class="col-2"><i class="fa fa-lg fa-at"></i></td>
-                <td class="col-10"><a href="mailto:me@school.edu">me@school.edu</a></td>
-              </tr>
-              <tr class="d-flex">
-                <td class="col-2"><i class="fa fa-lg fa-calendar-plus"></i></td>
-                <td class="col-10"><a href="https://calendly.com" target="_blank">Appointment</a><br><small
-                    class="text-muted">30 min each</small></td>
-              </tr>
-            </tbody>
-          </table>
+        .group {
+            margin: 20px 0;
+            border: dotted black 1px;
+            padding: 10px;
+        }
 
+        .group__header {
+            display: table;
+            margin-top: -22px;
+            margin-bottom: 10px;
+            padding: 0 3px;
+            font-family: "Geneva", sans-serif;
+            font-size: 24px;
+            background: white;
+        }
 
+        h2,
+        h3 {
+            font-family: "Chicago Normal", sans-serif;
+            font-weight: 200;
+            margin: 0;
+        }
 
+        p,
+        li {
+            font-family: "Geneva", sans-serif;
+            font-size: 24px;
+            margin: 0;
+            word-spacing: -6px;
+            /* this font is weird, yo */
+            line-height: 1.1;
+        }
+
+        a {
+            color: black;
+        }
+
+        .subgroup h3 {
+            margin-top: 15px;
+        }
+
+        .subgroup:first-child h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0 10px;
+            }
+
+            .window {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<section class="window">
+    <div class="window__header">
+        <div class="window__header-close"></div>
+        <div class="window__header-inner">
+            <h1>
+                kAI Lab
+            </h1>
         </div>
-        <!-- col-sm-4 -->
+    </div>
+    <div class="window__body">
+        <p>
+            The kAI Lab, led by Dr. Kaiqun Fu, focuses on advancing
+            artificial intelligence, data mining, and machine learning techniques for analyzing complex spatiotemporal
+            systems. Our lab develops innovative computational models and algorithms to tackle real-world challenges in
+            transportation, public safety, environmental monitoring, and socio-economic systems.
+        </p>
+        <section class="group">
+            <h2 class="group__header">Research Interest</h2>
+            <div class="subgroup">
+                <h3>Spatiotemporal Data Mining</h3>
+                <p>Developing models for event detection, prediction, and analysis using large-scale geospatial and
+                    time-series data.</p>
+            </div>
 
-        <div class="col-sm-8 px-4">
+            <div class="subgroup">
+                <h3>Graph Neural Networks (GNNs)</h3>
+                <p>Exploring GNN architectures for applications in intelligent transportation, social networks, and
+                    urban analytics.</p>
+            </div>
 
-          <h1>Jane Smith</h1>
+            <div class="subgroup">
+                <h3>Machine Learning for Intelligent Transportation Systems</h3>
+                <p>Enhancing traffic incident prediction, road network modeling, and urban mobility analysis.</p>
+            </div>
 
-          <p class="position-title mt-2 mb-1">Title, School or Organization</p>
-          <p class="position-title mt-0 mb-4">Optional Second Title, School or Organization</p>
+            <div class="subgroup">
+                <h3>Multimodal Data Fusion</h3>
+                <p>Integrating textual, visual, and structured data for improved forecasting and decision-making.</p>
+            </div>
 
-          <p>Jane Smith is the {{title}} for the {{organization}}. There she {{does things}}. She is particularly
-            focused on {{various activities}}.</p>
+            <div class="subgroup">
+                <h3>Physics-Informed Machine Learning</h3>
+                <p>Applying deep learning techniques to solve scientific problems in power grids, environmental
+                    dynamics, and engineering systems.</p>
+            </div>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil earum
-            facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus omnis
-            molestias eaque.</p>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil earum
-            facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus omnis
-            molestias eaque.</p>
-
-
-          <!-- ------------------------------------------------------------------------>
-          <!-- Delete this section below if you don't want a read more section -------->
-          <div id="read-more">
-
-            <p>Ancillary info here.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil
-              earum facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus
-              omnis molestias eaque.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil
-              earum facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus
-              omnis molestias eaque.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil
-              earum facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus
-              omnis molestias eaque.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nostrum sunt hic, facilis nihil
-              earum facere magnam laboriosam deleniti esse veniam explicabo architecto. Fuga quod consequuntur ducimus
-              omnis molestias eaque.</p>
-
-          </div>
-
-          <span class="badge badge-primary pointer" id="badge-more">More</span>
-          <!-- Delete this section above if you don't want a read more section -------->
-          <!-- ------------------------------------------------------------------------>
-
-
-          <h3><span>Education</span></h3>
-
-          <ul id="education" class="list-group">
-            <li class="list-group-item">
-              <p><strong>PhD, Field</strong><br>
-                <span class="university">James Trickington University</span>
-              </p>
-            </li>
-            <li class="list-group-item">
-              <p><strong>MA, Field (Concentration)</strong><br>
-                <span class="university">James Trickington University</span>
-              </p>
-            </li>
-            <li class="list-group-item">
-              <p><strong>BA, Field (Majors)</strong><br>
-                <span class="university">James Trickington University</span>
-              </p>
-            </li>
-          </ul>
-
-          <div class="alert alert-primary mt-4" role="alert">
-            <h5>Download this template</h5>
-            <p>This template is completely free. Download and use any or all of it as you see fit. No attribution to me
-              is necessary, though <a href="mailto:rharriso@nd.edu">I'd love to know</a> if you're using it!</p>
+            <div class="subgroup">
+                <h3>AI for Social and Economic Impact</h3>
+                <p>Investigating the role of AI in understanding collaboration patterns, economic trends, and public
+                    health disparities.</p>
+            </div>
+        </section>
+        <section class="group">
+            <h2 class="group__header">Lab Members & Collaboration</h2>
             <p>
-              <a href="https://github.com/randal-sean-harrison/academic-website-template-bs4" target="_blank">Download
-                template from Github.</a>
+                The kAI Lab actively trains Ph.D., M.S., and undergraduate students, fostering interdisciplinary
+                research with experts in computer science, engineering, transportation, and public health. Our alumni
+                and collaborators contribute to academia, industry, and government agencies.
             </p>
-          </div>
+            <section class="group">
+                <h2 class="group__header">Current Members</h2>
+                <div class="subgroup">
+                    <h3>Kaiqun Fu: <span style="display: inline-block; font-size: 12px;">Lab Director</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Yangxiao Bai: <span style="display: inline-block; font-size: 12px;">Ph.D. Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Xiaozhu Jin: <span style="display: inline-block; font-size: 12px;">Ph.D. Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Ujjwal Pudasaini: <span style="display: inline-block; font-size: 12px;">M.S. Student</span></h3>
+                </div>
+            </section>
+            <section class="group">
+                <h2 class="group__header">Alumni</h2>
+                <div class="subgroup">
+                    <h3>ShiWen Wong: <span style="display: inline-block; font-size: 12px;">M.S. Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Anqi Zhang: <span style="display: inline-block; font-size: 12px;">M.S. Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Caden Fischer: <span style="display: inline-block; font-size: 12px;">Undergrad Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Hoa Ta: <span style="display: inline-block; font-size: 12px;">Undergrad Student</span></h3>
+                </div>
+                <div class="subgroup">
+                    <h3>Jason Wang: <span style="display: inline-block; font-size: 12px;">Highschool Student</span></h3>
+                </div>
+            </section>
+        </section>
+        <section class="group">
+            <h2 class="group__header">Publications</h2>
+            <div class="subgroup">
+                <h3>Sentiment Summarization Generation Based On Multi Instance Learning And Graph Convolution On Social
+                    Media</h3>
+                <p>Bingshu Shi, Meiling Liu, Jiyun Zhou, and <strong>Kaiqun Fu</strong></p>
+                <p><i>2024 27th International Conference on Computer Supported Cooperative Work in Design (CSCWD), pages
+                    242--247. IEEE, 2024</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
 
-          <div class="alert alert-warning mt-2" role="alert">
-            <h5>Open This Template with a Localhost or Live Server</h5>
-            <p>This template uses Javascript to load the header and footer. To see the header loaded, you will need to
-              view it from within a localhost (MAMP/LAMP/WAMP, etc.) on your machine.</p>
+            <div class="subgroup">
+                <h3>A Large Language Model-Based Fake News Detection Framework With Rag Fact-Checking</h3>
+                <p>Yangxiao Bai and <strong>Kaiqun Fu</strong></p>
+                <p><i>2024 IEEE International Conference on Big Data (BigData). IEEE, 2024</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
 
-            <p>Alternately, you can install and run the LiveServer plugin from within most popular code editors such as
-              Atom.io or Visual Studio Code.</p>
+            <div class="subgroup">
+                <h3>Power System Frequency Dynamics Modeling, State Estimation, And Control Using Neural Ordinary
+                    Differential Equations (Nodes) And Soft Actor-Critic (Sac) Machine Learning Approaches</h3>
+                <p>Pooja Aslami, Tara Aryal, Astha Rai, Niranjan Bhujel, Hossein Moradi Rekabdarkolaee, <strong>Kaiqun
+                    Fu</strong>, Reinaldo Tonkoski, Zongjie Wang, and Timothy M Hansen</p>
+                <p><i>ACM SIGAPP Applied Computing Review, volume~24, pages 24--39. ACM New York, NY, USA, 2024</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
 
+            <div class="subgroup">
+                <h3>A Real-Time Digital Simulator Accelerated Reinforcement Learning Training Environment For Power
+                    System Frequency Dynamics</h3>
+                <p>Pooja Aslami, Tara Aryal, Niranjan Bhujel, Hossein Moradi Rekabdarkolaee, <strong>Kaiqun Fu</strong>,
+                    Zongjie Wang, and Timothy M Hansen</p>
+                <p><i>2024 56th North American Power Symposium (NAPS), pages 1--6. IEEE, 2024</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Alerta-Net: A Temporal Distance-Aware Recurrent Networks For Stock Movement And Volatility
+                    Prediction</h3>
+                <p>Shengkun Wang, YangXiao Bai, <strong>Kaiqun Fu</strong>, Linhan Wang, Chang-Tien Lu, and Taoran Ji
+                </p>
+                <p><i>Proceedings of the 2023 IEEE/ACM International Conference on Advances in Social Networks Analysis
+                    and Mining (ASONAM). IEEE, 2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Stock Movement And Volatility Prediction From Tweets, Macroeconomic Factors And Historical
+                    Prices</h3>
+                <p>Shengkun Wang, YangXiao Bai, Taoran Ji, <strong>Kaiqun Fu</strong>, Linhan Wang, and Chang-Tien Lu
+                </p>
+                <p><i>2023 IEEE International Conference on Big Data (BigData), pages 1863--1872. IEEE, 2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Exploration On Physics-Informed Neural Networks On Partial Differential Equations (Student
+                    Abstract)</h3>
+                <p>Hoa Ta, Shi Wen Wong, Nathan McClanahan, Jung-Han Kimn, and <strong>Kaiqun Fu</strong></p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~37, pages 16344--16345,
+                    2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Roadformer: Road-Anchored Adversarial Dynamic Graph Transformer For Unlimited-Range Traffic Incident
+                    Impact Prediction</h3>
+                <p>Yanshen Sun, <strong>Kaiqun Fu</strong>, and Chang-Tien Lu</p>
+                <p><i>2023 IEEE International Conference on Big Data (BigData), pages 895--904. IEEE, 2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Pantop: Pandemic Topic Detection And Monitoring System (Student Abstract)</h3>
+                <p>Yangxiao Bai and <strong>Kaiqun Fu</strong></p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~37, pages 16158--16159,
+                    2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Application Of Neural Ordinary Differential Equations To Power System Frequency Dynamics</h3>
+                <p>Tara Aryal, Pooja Aslami, Niranjan Bhujel, Hossein Moradi Rekabdarkolaee, <strong>Kaiqun Fu</strong>,
+                    and Timothy M Hansen</p>
+                <p><i>2023 North American Power Symposium (NAPS), pages 1--6. IEEE, 2023</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Blocking Influence At Collective Level With Hard Constraints (Student Abstract)</h3>
+                <p>Zonghan Zhang, Subhodip Biswas, Fanglan Chen, <strong>Kaiqun Fu</strong>, Taoran Ji, Chang-Tien Lu,
+                    Naren Ramakrishnan, and Zhiqian Chen</p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~36, pages 13115--13116,
+                    2022</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Granger Causal Inference For Interpretable Traffic Prediction</h3>
+                <p>Lei Zhang, <strong>Kaiqun Fu</strong>, Taoran Ji, and Chang-Tien Lu</p>
+                <p><i>2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC), pages
+                    1645--1651. IEEE, 2022</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Augmentation Of Chinese Character Representations With Compositional Graph Learning (Student
+                    Abstract)</h3>
+                <p>Jason Wang, <strong>Kaiqun Fu</strong>, Zhiqian Chen, and Chang-Tien Lu</p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~36, pages 13075--13076,
+                    2022</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Early Forecast Of Traffic Accident Impact Based On A Single-Snapshot Observation (Student
+                    Abstract)</h3>
+                <p>Guangyu Meng, Qisheng Jiang, <strong>Kaiqun Fu</strong>, Beiyu Lin, Chang-Tien Lu, and Zhiqian Chen
+                </p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~36, pages 13015--13016,
+                    2022</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Multi-View Cascading Spatial-Temporal Graph Neural Network For Traffic Flow Forecasting</h3>
+                <p>Zibo Liu, <strong>Kaiqun Fu</strong>, and Xiaotong Liu</p>
+                <p><i>International Conference on Artificial Neural Networks, pages 605--616. Springer Nature
+                    Switzerland Cham, 2022</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>A Hierarchical Attention Graph Convolutional Network For Traffic Incident Impact Forecasting</h3>
+                <p><strong>Kaiqun Fu</strong>, Taoran Ji, Nathan Self, Zhiqian Chen, and Chang-Tien Lu</p>
+                <p><i>2021 IEEE International Conference on Big Data (Big Data), pages 1619--1624. IEEE, 2021</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Dynamic Multi-Context Attention Networks For Citation Forecasting Of Scientific Publications</h3>
+                <p>Taoran Ji, Nathan Self, <strong>Kaiqun Fu</strong>, Zhiqian Chen, Naren Ramakrishnan, and Chang-Tien
+                    Lu</p>
+                <p><i>Proceedings of the AAAI Conference on Artificial Intelligence, volume~35, pages 7953--7960,
+                    2021</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Risecure: Metro Incidents And Threat Detection Using Social Media</h3>
+                <p>Omer Zulfiqar, Yi-Chun Chang, Po-Han Chen, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, David Solnick,
+                    and Yanlin Li</p>
+                <p><i>2020 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining
+                    (ASONAM), pages 531--535. IEEE, 2020</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Sosnet: A Graph Convolutional Network Approach To Fine-Grained Cyberbullying Detection</h3>
+                <p>Jason Wang, <strong>Kaiqun Fu</strong>, and Chang-Tien Lu</p>
+                <p><i>2020 IEEE International Conference on Big Data (Big Data), pages 1699--1708. IEEE, 2020</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Titan: A Spatiotemporal Feature Learning Framework For Traffic Incident Duration Prediction</h3>
+                <p><strong>Kaiqun Fu</strong>, Taoran Ji, Liang Zhao, and Chang-Tien Lu</p>
+                <p><i>Proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic
+                    Information Systems, pages 329--338, 2019</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Feature Driven Learning Framework For Cybersecurity Event Detection</h3>
+                <p>Taoran Ji, Xuchao Zhang, Nathan Self, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, and Naren
+                    Ramakrishnan</p>
+                <p><i>Proceedings of the 2019 IEEE/ACM International Conference on Advances in Social Networks Analysis
+                    and Mining, pages 196--203, 2019</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Patent Citation Dynamics Modeling Via Multi-Attention Recurrent Networks</h3>
+                <p>Taoran Ji, Zhiqian Chen, Nathan Self, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, and Naren
+                    Ramakrishnan</p>
+                <p><i>Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence
+                    (IJCAI-19), pages 2621--2627, 2019</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Streetnet: Preference Learning With Convolutional Neural Network On Urban Crime Perception</h3>
+                <p><strong>Kaiqun Fu</strong>, Zhiqian Chen, and Chang-Tien Lu</p>
+                <p><i>Proceedings of the 26th ACM SIGSPATIAL International Conference on Advances in Geographic
+                    Information Systems, pages 269--278, 2018</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Multi-Task Learning For Transit Service Disruption Detection</h3>
+                <p>Taoran Ji, <strong>Kaiqun Fu</strong>, Nathan Self, Chang-Tien Lu, and Naren Ramakrishnan</p>
+                <p><i>2018 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining
+                    (ASONAM), pages 634--641. IEEE, 2018</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Exploring Social Traffic Data For Evaluating Urban Arterial Congestion</h3>
+                <p>Rakesh Nune, Weisheng Zhong, <strong>Kaiqun Fu</strong>, and Jason X Tao</p>
+                <p><i>Transportation Research Board 96th Annual Meeting, number 17-05031. TRB, 2017</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Extracting Urban Street Features Using Street Level Lidar Data For Connected Vehicle
+                    Applications</h3>
+                <p>Rakesh Nune, <strong>Kaiqun Fu</strong>, and Jason X Tao</p>
+                <p><i>Transportation Research Board 96th Annual Meeting, number 17-03295. TRB, 2017</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Find The Butterfly: A Social Media Based Arterial Incidents Detection And Causality Analysis
+                    System</h3>
+                <p><strong>Kaiqun Fu</strong>, Weisheng Zhong, Chang-Tien Lu, and Arnold P Boedihardjo</p>
+                <p><i>Proceedings of the 23rd ACM SIGSPATIAL International Conference on Advances in Geographic
+                    Information Systems, pages 1--4, 2015</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Social Media Data Analysis For Traffic Incident Detection And Management</h3>
+                <p><strong>Kaiqun Fu</strong>, R Nune, and JX Tao</p>
+                <p><i>Transportation Research Board 94th Annual Meeting, number 15-4022. TRB, 2015</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Steds: Social Media Based Transportation Event Detection With Text Summarization</h3>
+                <p><strong>Kaiqun Fu</strong>, Chang-Tien Lu, Rakesh Nune, and Jason Xianding Tao</p>
+                <p><i>2015 IEEE 18th International Conference on Intelligent Transportation Systems, pages 1952--1957.
+                    IEEE, 2015</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>Treads: A Safe Route Recommender Using Social Media Mining And Text Summarization</h3>
+                <p><strong>Kaiqun Fu</strong>, Yen-Cheng Lu, and Chang-Tien Lu</p>
+                <p><i>Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic
+                    Information Systems, pages 557--560, 2014</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+
+            <div class="subgroup">
+                <h3>A Search And Summary Application For Traffic Events Detection Based On Twitter Data</h3>
+                <p>Meiling Liu, <strong>Kaiqun Fu</strong>, Chang-Tien Lu, Guangsheng Chen, and Huiqiang Wang</p>
+                <p><i>Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic
+                    Information Systems, pages 549--552, 2014</i></p>
+                <p><a href="papers/nune2017extracting.pdf" target="_blank">paper</a> <a href=""
+                                                                                        target="_blank">slides</a></p>
+            </div>
+        </section>
+        <section class="group">
+            <h2 class="group__header">Code</h2>
             <ul>
-              <li><a href="https://atom.io/packages/atom-live-server" target="_blank">atom-live-server plugin</a></li>
-              <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
-                  target="_blank">Live Server for VS Code</a></li>
+                <li>
+                    <a href="https://github.com/kaichunf" target="_blank">github</a> - some code here, feel free to star
+                    or folk
+                </li>
+                <!-- <li>
+          <a href="https://glitch.com/@eric-wood" target="_blank">glitch</a> - mostly web audio experiments
+        </li>
+        <li>
+          <a href="https://codepen.io/eric-wood/" target="_blank">codepen</a> - mostly CSS/JS experiments here
+        </li> -->
             </ul>
-          </div>
-
-        </div>
-        <!-- col-sm-8 -->
-
-      </div>
-      <!-- .row -->
-
+        </section>
+        <section class="group">
+            <h2 class="group__header">Social</h2>
+            <ul>
+                <li>
+                    <a href="https://x.com/KaiqunFu" target="_blank">twitter</a> - tweet me!
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/kaiqun.fu" target="_blank">facebook</a> - making poker faces
+                </li>
+                <li>
+                    <a href="https://scholar.google.com/citations?user=17le_0cAAAAJ&hl=en" target="_blank">Google
+                        Scholar</a> - cite for cite
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/kaiqun-fu-40913439/" target="_blank">linkedin</a> - add me to
+                    your professional network or whatever
+                </li>
+                <!-- <li>
+          <a href="https://www.instagram.com/eric.makes.noise" target="_blank">music instagram</a> - making weird faces playing guitar
+        </li>   -->
+            </ul>
+        </section>
+        <!--        <p>-->
+        <!--            website template by Eric Wood-->
+        <!--            / <a href="https://github.com/eric-wood/eric-wood.github.com">view source</a>-->
+        <!--        </p>-->
     </div>
-    <!-- #wrapper .container -->
-
-    <!-- Acknowledge include -->
-    <div id="acknowledge"></div>
-
-    <!-- Footer include -->
-    <div id="page-footer"></div>
-
-    <!-- Back to top button -->
-    <a role="button" id="back-to-top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-angle-up"
-        aria-hidden="true"></i></a>
-
-    <div class="modal fade" id="modal-map-to-office" tabindex="-1" role="dialog"
-      aria-labelledby="office-map-modal-label" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="office-map-modal-label">Map to my office</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true"><i class="fa fa-times-circle bright-blue"></i></span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Building 123<br>
-              <small class="text-muted small-caps">Just east of the statue of ganesh</small>
-            </p>
-            <img class="img-fluid rounded" width="100%" src="img/map-to-my-office.png" alt="map to my office">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- jquery JS minified -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <!-- jquery ui -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <!-- popper minified -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
-
-    <!-- bootstrap JS minified -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
-
-    <!-- Main local scripts -->
-    <script src="js/main.js"></script>
-
-    <script>
-      $(function () {
-
-        // Load the top page navbar
-        $("#page-navbar").load("page-navbar.html", function () {
-          console.log("navbar loaded");
-        });
-
-        // Load the acknowledge footer
-        $("#acknowledge").load("acknowledge.html", function () {
-          console.log("acknowledge loaded");
-        });
-
-      });
-      // document.ready
-    </script>
-
-  </body>
+</section>
+</body>
 
 </html>
