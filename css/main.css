@@ -533,3 +533,28 @@ dd {
     background-color: #1585cf;
     opacity: .8;
 }
+
+.tothe {
+    width: 400px;
+    margin: 125px auto;
+    padding: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.eraser {
+    left:-30%;
+    top: 8px;
+    height: 100%;
+    width: 130%;
+    border-radius: 135px/65px;
+    box-shadow: 0 0 100px 50px rgba(255, 255, 255, .8);
+    display: block;
+    position: absolute;
+    z-index: 2;
+    background: radial-gradient(#fff, rgba(255, 255, 255, .95));
+    animation: erase 10s ease-out;
+}
+@keyframes erase {
+    from {left: -170%;}
+    to {left: -30%;}
+}
