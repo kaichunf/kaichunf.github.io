@@ -48,8 +48,10 @@
 
     <div class="row">
         <div class="col-sm-4">
-            <img class="center-block img img-responsive img-thumbnail" src="img/avatar_dac_flip.png"
-                 alt="Image of Jane Smith">
+            <div class="profile_container">
+                <img id="myImage" class="center-block img img-responsive img-thumbnail" src="img/Fu-Kaiqun_2021_web.jpg"
+                     alt="Image of Kaiqun Fu">
+            </div>
 
             <p id="title">Assistant Professor<br>Director of kAI Lab<br>
                 <span id="program">Department of Electrical Engineering and Computer Science</span>
@@ -127,20 +129,31 @@
 
             <ul>
                 <li>
+                    <span class="label label-success">Paper</span>
+                    Our paper <strong>Location Representation Learning For Urban Management with Heterogeneous
+                    Graph</strong> is accepted at <strong><a
+                        href="https://mdm2025.github.io/">MDM 2025</a></strong>.<br>
+                </li>
+                <li>
                     <span class="label label-success">Service</span>
-                    <!--                    <strong>IEEE ICDM 2025, The 25th IEEE International Conference on Data Mining, November 12-15, 2025, Washington DC, USA</strong><br>-->
                     <em>Kaiqun</em> will serve as the <strong>Demo Co-Chair</strong> for <em><a
                         href="https://www3.cs.stonybrook.edu/~icdm2025/index.html">ICDM 2025</a></em>. We invite demo
                     contributions to the IEEE ICDM 2025. See you in Washington DC this Fall!<br>
                 </li>
                 <li>
-                    <span class="label label-success">Grants</span>
-                    <strong>Time series multi-modal foundation model for near-real-time land surface dynamics
-                        characterization in support of ESDT,</strong><br>
+                    <span class="label label-success">Grant</span>
+                    One grant awarded by <u><em>National Aeronautics & Space Administration (NASA), Jun. 1, 2025 to May
+                    31, 2027</em></u> <br>
                     <strong>Role: <u>Co-PI </u></strong><br>
-                    Sponsored by: <em>National Aeronautics & Space Administration (NASA), PI – Hankui Zhang, Co-PI -
-                    Xiaoyang Zhang; Grant No. 23-AIST23-0106, Jun. 1, 2025 to May 31, 2027</em><br>
+                    Project Name: <strong>Time series multi-modal foundation model for near-real-time land surface
+                    dynamics characterization in support of ESDT,</strong><br>
                     Amount: <strong>$462,516</strong>
+                </li>
+                <li>
+                    <span class="label label-success">Paper</span>
+                    Our paper <strong>A Large Language Model-based Fake News Detection Framework with RAG
+                    Fact-Checking</strong> is accepted at <strong><a
+                        href="https://www3.cs.stonybrook.edu/~ieeebigdata2024/">IEEE BigData 2024</a></strong>.<br>
                 </li>
             </ul>
 
@@ -148,6 +161,21 @@
             <h3 class="push-down-3"><span>Recent Pulication</span></h3>
 
             <ul class="slct_publication">
+                <li><span class="label label-success">MDM</span> <strong>Location Representation Learning For Urban Management with Heterogeneous Graph</strong><br>
+                    Xiaozhu Jin, Xianding Tao, <u>Kaiqun Fu</u><br>
+                    <em>Proceedings of The 26th IEEE International Conference on Mobile Data Management</em> (2025).<br>
+                    <small><a href="">Paper</a></small> | <small><a href="">Slides</a></small>
+                </li>
+                <li><span class="label label-success">IEEE BigData</span> <strong>A Large Language Model-based Fake News Detection Framework with RAG Fact-Checking</strong><br>
+                    Yangxiao Bai, <u>Kaiqun Fu</u><br>
+                    <em>Proceedings of the IEEE International Conference on Big Data</em> (2024).<br>
+                    <small><a href="">Paper</a></small> | <small><a href="">Slides</a></small>
+                </li>
+                <li><span class="label label-success">NAPS</span> <strong>A Real-Time Digital Simulator Accelerated Reinforcement Learning Training Environment for Power System Frequency Dynamics</strong><br>
+                    Pooja Aslami, Tara Aryal, Niranjan Bhujel, Hossein Moradi Rekabdarkolaee, <u>Kaiqun Fu</u>, Zongjie Wang, Timothy M Hansen<br>
+                    <em>2024 North American Power Symposium (NAPS)</em> (2024).<br>
+                    <small><a href="">Paper</a></small> | <small><a href="">Slides</a></small>
+                </li>
                 <li><span class="label label-info">TKDD</span> <strong>Citation Forecasting with Multi-Context
                     Attention-Aided Dependency Modeling</strong><br>
                     Taoran Ji, Nathan Self, <u>Kaiqun Fu</u>, Zhiqian Chen, Naren Ramakrishnan, Chang-Tien Lu<br>
@@ -272,6 +300,28 @@
         $("li#about a").addClass("active");
         $("li#about a").addClass("hvr-bubble-bottom");
     });
+
+    const image = document.getElementById('myImage');
+    const container = document.querySelector('.profile_container');
+
+    container.addEventListener('mousemove', (event) => {
+        const x = event.clientX;
+        const y = event.clientY;
+        // Calculate the new image based on mouse position
+        const newImageSrc = calculateNewImage(x, y);
+
+        // Update the image
+        image.src = newImageSrc;
+    });
+
+    // Example function to determine the new image
+    function calculateNewImage(x, y) {
+        if (x > container.offsetWidth / 2) {
+            return "img/avatar_dac_hedcut.PNG";
+        } else {
+            return "img/Fu-Kaiqun_2021_web.jpg";
+        }
+    }
 </script>
 
 </body>
