@@ -49,8 +49,11 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="profile_container">
-                <img id="myImage" class="center-block img img-responsive img-thumbnail" src="img/Fu-Kaiqun_2021_web.jpg"
-                     alt="Image of Kaiqun Fu">
+<!--                <img id="myImage" class="center-block img img-responsive img-thumbnail" src="img/Fu-Kaiqun_2021_web.jpg"-->
+<!--                     alt="Image of Kaiqun Fu">-->
+<!--                <img id="myImage" class="center-block img img-responsive img-thumbnail" src="img/Fu-Kaiqun_2025.png"-->
+<!--                     alt="Image of Kaiqun Fu">-->
+                <img id="hoverImage" class="center-block img img-responsive img-thumbnail" src="img/Fu-Kaiqun_2025.png" alt="Hover Image">
             </div>
 
             <p id="title">Assistant Professor<br>Director of kAI Lab<br>
@@ -305,27 +308,48 @@
         $("li#about a").addClass("hvr-bubble-bottom");
     });
 
-    const image = document.getElementById('myImage');
-    const container = document.querySelector('.profile_container');
-
-    container.addEventListener('mousemove', (event) => {
-        const x = event.clientX;
-        const y = event.clientY;
-        // Calculate the new image based on mouse position
-        const newImageSrc = calculateNewImage(x, y);
-
-        // Update the image
-        image.src = newImageSrc;
-    });
-
-    // Example function to determine the new image
-    function calculateNewImage(x, y) {
-        if (x > container.offsetWidth / 2) {
-            return "img/avatar_dac_hedcut.PNG";
-        } else {
-            return "img/Fu-Kaiqun_2021_web.jpg";
+    function triggerWithProbability(p, callback) {
+        let temp_num = Math.random();
+        if (temp_num < p) {
+            callback();
         }
     }
+
+    const img = document.getElementById("hoverImage");
+    const originalSrc = "img/Fu-Kaiqun_2025.png";
+    const hoverSrc = "img/Fu-Kaiqun_2025_sp.png";
+
+    img.addEventListener("mouseover", () => {
+        triggerWithProbability(0.1, () => {
+            img.src = hoverSrc;
+        });
+    });
+
+    img.addEventListener("mouseout", () => {
+        img.src = originalSrc;
+    });
+
+    // const image = document.getElementById('myImage');
+    // const container = document.querySelector('.profile_container');
+    //
+    // container.addEventListener('mousemove', (event) => {
+    //     const x = event.clientX;
+    //     const y = event.clientY;
+    //     // Calculate the new image based on mouse position
+    //     const newImageSrc = calculateNewImage(x, y);
+    //
+    //     // Update the image
+    //     image.src = newImageSrc;
+    // });
+    //
+    // // Example function to determine the new image
+    // function calculateNewImage(x, y) {
+    //     if (x > container.offsetWidth / 2) {
+    //         return "img/avatar_dac_hedcut.PNG";
+    //     } else {
+    //         return "img/Fu-Kaiqun_2021_web.jpg";
+    //     }
+    // }
 </script>
 
 </body>
